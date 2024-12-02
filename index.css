@@ -1,93 +1,79 @@
+:root {
+  --accent-color: darkred;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: rgb(3,133,159);
+  background: linear-gradient(90deg, rgba(3,133,159,1) 0%, rgba(0,212,255,0.6) 100%);
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+h2 {
+  margin: 20px;
+  color: var(--accent-color);
+  font-size: 24px;
+}
+
+h4 {
+  margin-left: 20px;
+}
+
+.calendar-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); 
+  gap: 4px;
+  margin-left: 20px;
+}
+ol {
+  margin: 20px;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  min-height: 100vh;
-  background-color: #f9f9f9;
-  background-image: url('snowybg.png');
-  background-size: cover;
 }
 
-.container {
+p, i {
+  text-shadow: 0px 0px 10px black;
+}
+
+p {
+  padding: 2px;
+  font-size: 1rem;
+}
+
+i {
+  font-size: 2rem;
+}
+.date {
+  font-size: 1.25rem;
+  padding-bottom: 1rem;
+}
+.calendar-box {
+  list-style-type: none;
+  font-size: 1rem;
   text-align: center;
-  background: #fff;
   padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin: 1em 0;
-  border-radius: 15px; 
-  font-family: 'Poppins';
-  color: #054787;
+  color: white;
+  border-radius: 10px;
+  border: 4px solid black;
+  background: rgb(159,3,11);
+  background: linear-gradient(rgba(159,3,11,0.82) 0%, rgba(81,1,4,0.86) 100%);
+}
+.calendar-box:hover {
+  border: 2px solid white;
+  background: grey;
+  box-shadow: inset 0px 0px 10px 10px white;
 }
 
-h1 {
-  font-size: 3em;
-  margin: .25em 0 .75em 0;
-  font-family: 'Caveat';
+.calendar-box p {
+  margin: 0;
+  text-align: center;
 }
 
-label, button, input::placeholder {
-    font-family: 'Poppins'
-}
-
-input::placeholder {
-    font-size: .8em;
-}
-
-.input-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  margin-bottom: 20px;
-    position: relative;
-}
-
-#item-input {
-  width: 200px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #054787;
+.snowflake {
   color: #fff;
-  cursor: pointer;
-  border-radius: 4px;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 0 5px #000;
 }
-
-button:hover, button:focus {
-  background-color: #218838;
-}
-
-button:active {
-    background-color: #FFC300;
-    color: black;
-}
-
-label {
-    position: absolute;
-    top: -10px;
-    left: 10px;
-    align-self: flex-start;
-    margin-left: 1px;background-color: white;
-    padding: 0 10px;
-    /* border: 1px solid; */
-}
-
-#shopping-list {
-  list-style: "🎁 ";
-}
-
-#shopping-list li {
-  margin: 10px 0;
-  border-radius: 4px;
-  text-align: left;
-  font-size: 1.9em;
-  font-family: 'Caveat'
-}
+ 
+.snowflake,.snowflake .inner{animation-iteration-count:infinite;animation-play-state:running}@keyframes snowflakes-fall{0%{transform:translateY(0)}100%{transform:translateY(110vh)}}@keyframes snowflakes-shake{0%,100%{transform:translateX(0)}50%{transform:translateX(80px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;user-select:none;cursor:default;animation-name:snowflakes-shake;animation-duration:3s;animation-timing-function:ease-in-out}.snowflake .inner{animation-duration:10s;animation-name:snowflakes-fall;animation-timing-function:linear}.snowflake:nth-of-type(0){left:1%;animation-delay:0s}.snowflake:nth-of-type(0) .inner{animation-delay:0s}.snowflake:first-of-type{left:10%;animation-delay:1s}.snowflake:first-of-type .inner,.snowflake:nth-of-type(8) .inner{animation-delay:1s}.snowflake:nth-of-type(2){left:20%;animation-delay:.5s}.snowflake:nth-of-type(2) .inner,.snowflake:nth-of-type(6) .inner{animation-delay:6s}.snowflake:nth-of-type(3){left:30%;animation-delay:2s}.snowflake:nth-of-type(11) .inner,.snowflake:nth-of-type(3) .inner{animation-delay:4s}.snowflake:nth-of-type(4){left:40%;animation-delay:2s}.snowflake:nth-of-type(10) .inner,.snowflake:nth-of-type(4) .inner{animation-delay:2s}.snowflake:nth-of-type(5){left:50%;animation-delay:3s}.snowflake:nth-of-type(5) .inner{animation-delay:8s}.snowflake:nth-of-type(6){left:60%;animation-delay:2s}.snowflake:nth-of-type(7){left:70%;animation-delay:1s}.snowflake:nth-of-type(7) .inner{animation-delay:2.5s}.snowflake:nth-of-type(8){left:80%;animation-delay:0s}.snowflake:nth-of-type(9){left:90%;animation-delay:1.5s}.snowflake:nth-of-type(9) .inner{animation-delay:3s}.snowflake:nth-of-type(10){left:25%;animation-delay:0s}.snowflake:nth-of-type(11){left:65%;animation-delay:2.5s}
