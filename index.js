@@ -35,14 +35,10 @@ function checkDuplicate() {
         return simplifyListItem(item)
     })
     
-    /* ⚠️ You need to add code to this function! ⚠️*/ 
-    
     const itemText = itemInput.value
     const simplifiedItem = simplifyListItem(itemText)
     let matches = false
     existingList.forEach((item) => {
-      console.log('item:', item)
-      console.log('simplifiedItem:', simplifiedItem)
         if(JSON.stringify(item)===JSON.stringify(simplifiedItem)) {
             matches = true
         }
