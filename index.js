@@ -1,81 +1,62 @@
-/*
-Grandpa has a Christmas wish list to keep track of all the gifts he wants to ask for. But there’s a problem: if he forgets he’s already added something, the list gets clogged up with duplicates. This happened last year, and he ended up with 8 talking picture frames on Christmas Day!
+/*  Santas Emoji Hack!
 
-Your task is to complete the `checkDuplicate()` function 👇 to ensure no duplicates are added to the list. But here’s the tricky part: Grandpa sometimes hits the spacebar more than once, making it harder to spot duplicates.
+During Christmas, Santa wants to ban negative emojis, so when people
+use negative emoji shortcodes, he wants positive emojis to appear instead.
 
-For example, only one of these entries should be added to the list — the others should be flagged as duplicates:
+In other words, :angry: should result in 🎁 instead of 😠.
 
-- "talking picture frames"
-- "talking  picture frames"
-- "talking picture    frames"
-- " talking picture frames "
 
-**Your tasks:**
-1. Ensure no duplicates can be added to the list.
-2. Account for extra spaces at the beginning/end and between words.
- 
-**Stretch Goals:**
-1. Case Sensitivity: Handle cases where capitalization differs. For example:
-   - `"Cat Hammock"` should be flagged as a duplicate of `"cat hammock"`.
-   - Preserve Grandpa’s original capitalization (e.g., if `"Cat Hammock"` is added first, that should be added to the list). Do not simply convert all entries to lower case - Grandpa might well want to capitalize some words. 
-
-2. Additional Features: Add functionality to delete or edit items on the list.
 */
 
-// Get references to DOM elements
-const itemInput = document.getElementById('item-input')
-const addItemButton = document.getElementById('add-item-button')
-const shoppingList = document.getElementById('shopping-list')
-const listArr = []
-
-// Function to check item is not duplicate
-function checkDuplicate() {
-    
-    const existingList = listArr.map((item) => {
-        return simplifyListItem(item)
-    })
-    
-    const itemText = itemInput.value
-    const simplifiedItem = simplifyListItem(itemText)
-    let matches = false
-    existingList.forEach((item) => {
-        if(JSON.stringify(item)===JSON.stringify(simplifiedItem)) {
-            matches = true
-        }
-    })
-    if(!matches) {
-        listArr.push(itemText)
-    }
-    renderList()
-}
-
-function simplifyListItem(item) {
-    console.log(item)
-    const individualWords = item.split(' ')
-    const fixedWords = individualWords.filter((word) => word != "")
-    return fixedWords.map((word) => {
-      return word.toLowerCase()
-    })
+const hackedEmojis = {
+  "angry":            "🎁",   // 😠
+  "thumbsdown":       "👏",   // 👎  
+  "man_facepalming":  "🎅",   // 🤦‍♂️
+  "cry":              "‍😄",   // 😭
+  "puke":             "🤩"    // 🤮
 }
 
 
-// Function to add an item to the shopping list
-function renderList() {
-    shoppingList.innerHTML = ''
-    listArr.forEach((gift) => {
-        const listItem = document.createElement('li')
-        listItem.textContent = gift
-        shoppingList.appendChild(listItem)
-    })
-    itemInput.value = ''; // Clear the input field
+/* 1. Write a function that checks if a lowercase word starts and 
+ends with a colon. If it does, check if it exists in the hackedEmojis object, 
+and replace it with the corresponding emoji. If not, return the original word.
+
+
+Example input: ":cry:"
+Example output: ‍😄
+
+*/ 
+function emojifyWord(word){
+  const wordLength = word.length
+  if(word[0]===":" && word[wordLength-1]===":") {
+    const rootWord = word.slice(1,wordLength-1)
+    return hackedEmojis[rootWord]
+  }
+  return word;
 }
 
-// Add event listener to button
-addItemButton.addEventListener('click', checkDuplicate)
+console.log(emojifyWord(":angry:"));
 
-// Allow adding items by pressing Enter key
-itemInput.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-        checkDuplicate()
-    }
-})
+
+/* 2. Write a function to find any emoji shortcodes in a phrase.
+Use your emojify function from the previous exercise!
+
+Example input: "Just read your article :thumbsdown:"
+Example output: "Just read your article 👏"
+*/ 
+
+function emojifyPhrase(phrase){
+  const wordArray = phrase.split(" ")
+  const newArray = wordArray.map((word) => {
+    return emojifyWord(word)
+  })
+  return newArray.join(' ');
+}
+
+console.log(emojifyPhrase("Those shoes :puke:"));
+
+
+// Stretch goal: don't just replace the shortcodes, but also 
+// any emojis are added directly to the text.
+
+
