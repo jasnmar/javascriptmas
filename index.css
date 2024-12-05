@@ -1,93 +1,97 @@
-body {
-  font-family: Arial, sans-serif;
+/* Reset some default browser styles */
+body, h1, input, button {
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  min-height: 100vh;
-  background-color: #f9f9f9;
-  background-image: url('snowybg.png');
-  background-size: cover;
+  box-sizing: border-box;
 }
 
-.container {
+/* Body Styling */
+body {
+  background-color: #f7f8fc;
+  color: #333;
+  line-height: 1.6;
   text-align: center;
-  background: #fff;
   padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin: 1em 0;
-  border-radius: 15px; 
+  background-image: url('xmasMovieBg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
   font-family: 'Poppins';
-  color: #054787;
 }
 
+/* Heading */
 h1 {
-  font-size: 3em;
-  margin: .25em 0 .75em 0;
-  font-family: 'Caveat';
-}
-
-label, button, input::placeholder {
-    font-family: 'Poppins'
-}
-
-input::placeholder {
-    font-size: .8em;
-}
-
-.input-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
+  font-size: 2rem;
+  color: #2c3e50;
+  color: darkolivegreen;
   margin-bottom: 20px;
-    position: relative;
+  font-family: 'Bungee Shade', serif;
 }
 
-#item-input {
-  width: 200px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+/* Main Container */
+main {
+  background-color: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 1em auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #054787;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 4px;
+/* Emoji Clues */
+.emoji-clues-container{
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
-button:hover, button:focus {
-  background-color: #218838;
-}
-
-button:active {
-    background-color: #FFC300;
-    color: black;
+/* Form Styling */
+form {
+  margin-bottom: 20px;
 }
 
 label {
-    position: absolute;
-    top: -10px;
-    left: 10px;
-    align-self: flex-start;
-    margin-left: 1px;background-color: white;
-    padding: 0 10px;
-    /* border: 1px solid; */
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
 }
 
-#shopping-list {
-  list-style: "🎁 ";
+input[type="text"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
 }
 
-#shopping-list li {
-  margin: 10px 0;
-  border-radius: 4px;
-  text-align: left;
-  font-size: 1.9em;
-  font-family: 'Caveat'
+input[type="text"]:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Button Styling */
+button {
+  background-color: #3498db;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Answer Box */
+.answer {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #27ae60;
+  min-height: 40px; /* Ensures space is allocated even if empty */
 }
