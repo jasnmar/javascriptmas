@@ -1,81 +1,60 @@
-/*
-Grandpa has a Christmas wish list to keep track of all the gifts he wants to ask for. But there’s a problem: if he forgets he’s already added something, the list gets clogged up with duplicates. This happened last year, and he ended up with 8 talking picture frames on Christmas Day!
+/* 
+This Christmas, you’ve been tasked with running an anagram quiz at 
+the family gathering.
 
-Your task is to complete the `checkDuplicate()` function 👇 to ensure no duplicates are added to the list. But here’s the tricky part: Grandpa sometimes hits the spacebar more than once, making it harder to spot duplicates.
+You have been given a list of anagrams, but you suspect that some 
+of the anagram pairs might be incorrect.
 
-For example, only one of these entries should be added to the list — the others should be flagged as duplicates:
+Your job is to write a JavaScript function to loop through the array
+and filter out any pairs that aren’t actually anagrams.
 
-- "talking picture frames"
-- "talking  picture frames"
-- "talking picture    frames"
-- " talking picture frames "
+For this challenge, spaces will be ignored, so "Be The Helm" would 
+be considered a valid anagram of "Bethlehem".
+*/ 
 
-**Your tasks:**
-1. Ensure no duplicates can be added to the list.
-2. Account for extra spaces at the beginning/end and between words.
- 
-**Stretch Goals:**
-1. Case Sensitivity: Handle cases where capitalization differs. For example:
-   - `"Cat Hammock"` should be flagged as a duplicate of `"cat hammock"`.
-   - Preserve Grandpa’s original capitalization (e.g., if `"Cat Hammock"` is added first, that should be added to the list). Do not simply convert all entries to lower case - Grandpa might well want to capitalize some words. 
+let anagrams = [
+  ["Can Assault", "Santa Claus"],
+  ["Refreshed Erudite Londoner", "Rudolf the Red Nose Reindeer"],
+  ["Frosty The Snowman", "Honesty Warms Front"],
+  ["Drastic Charms", "Christmas Cards"],
+  ["Congress Liar", "Carol Singers"],
+  ["The Tin Glints", "Silent Night"],
+  ["Be The Helm", "Betlehem"],
+  ["Is Car Thieves", "Christmas Eve"]
+];
 
-2. Additional Features: Add functionality to delete or edit items on the list.
-*/
-
-// Get references to DOM elements
-const itemInput = document.getElementById('item-input')
-const addItemButton = document.getElementById('add-item-button')
-const shoppingList = document.getElementById('shopping-list')
-const listArr = []
-
-// Function to check item is not duplicate
-function checkDuplicate() {
-    
-    const existingList = listArr.map((item) => {
-        return simplifyListItem(item)
-    })
-    
-    const itemText = itemInput.value
-    const simplifiedItem = simplifyListItem(itemText)
-    let matches = false
-    existingList.forEach((item) => {
-        if(JSON.stringify(item)===JSON.stringify(simplifiedItem)) {
-            matches = true
-        }
-    })
-    if(!matches) {
-        listArr.push(itemText)
+function findAnagrams(array){
+  console.log('array: ', array)
+  const newArray = array.map((pair) => {
+    const firstWord = pair[0].toLowerCase()
+    const secondWord = pair[1].toLowerCase()
+    if(compareWords(firstWord, secondWord)) {
+      return pair
     }
-    renderList()
+  })
+  const fixedArray = newArray.filter((item) => item != undefined)
+  return fixedArray
 }
 
-function simplifyListItem(item) {
-    console.log(item)
-    const individualWords = item.split(' ')
-    const fixedWords = individualWords.filter((word) => word != "")
-    return fixedWords.map((word) => {
-      return word.toLowerCase()
-    })
-}
+function compareWords(first, second) {
+  const letters1 = first.split('')
+  const letters2 = second.split('')
+  const nospace1 = letters1.filter((letter) => letter != ' ').sort()
+  const nospace2 = letters2.filter((letter) => letter != ' ').sort()
 
-
-// Function to add an item to the shopping list
-function renderList() {
-    shoppingList.innerHTML = ''
-    listArr.forEach((gift) => {
-        const listItem = document.createElement('li')
-        listItem.textContent = gift
-        shoppingList.appendChild(listItem)
-    })
-    itemInput.value = ''; // Clear the input field
-}
-
-// Add event listener to button
-addItemButton.addEventListener('click', checkDuplicate)
-
-// Allow adding items by pressing Enter key
-itemInput.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-        checkDuplicate()
+  if(nospace1.length!=nospace2.length) {
+    return false
+  } else {
+    let match = true
+    for (let i = 0; i < nospace1.length; i++) {
+      if(nospace1[i]!=nospace2[i]) {
+        match = false
+      }
     }
-})
+    return match
+  }
+
+}
+
+console.log(findAnagrams(anagrams))
+
