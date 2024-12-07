@@ -1,93 +1,59 @@
-body {
-  font-family: Arial, sans-serif;
+* {
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  min-height: 100vh;
-  background-color: #f9f9f9;
-  background-image: url('snowybg.png');
-  background-size: cover;
+  box-sizing: border-box;
 }
 
-.container {
-  text-align: center;
-  background: #fff;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin: 1em 0;
-  border-radius: 15px; 
-  font-family: 'Poppins';
-  color: #054787;
-}
-
-h1 {
-  font-size: 3em;
-  margin: .25em 0 .75em 0;
-  font-family: 'Caveat';
-}
-
-label, button, input::placeholder {
-    font-family: 'Poppins'
-}
-
-input::placeholder {
-    font-size: .8em;
-}
-
-.input-group {
+body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
-  margin-bottom: 20px;
-    position: relative;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #2b2d42;
+  background-image: url('images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-#item-input {
-  width: 200px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+.snow-globe {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  border-bottom-left-radius: unset;
+  border-bottom-right-radius: unset;
+  overflow: hidden;
+  background-image: url('images/scene.png');
+  background-color: black;
+  background-size: contain;
+  box-shadow: inset 25px 25px 40px rgba(255,255,255,.5);
+  border: 2px solid #999;
 }
 
-button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #054787;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 4px;
+.snow-globe-base {
+  width: 380px;
+  height: 60px;
+  background: rgb(157,161,159);
+  background: linear-gradient(90deg, rgba(157,161,159,1) 27%, rgba(247,254,251,1) 69%);
 }
 
-button:hover, button:focus {
-  background-color: #218838;
+/* 
+Challenge:
+2.  Add CSS to position the snowflakes ❄️ and animation to make them fall.
+*/
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  user-select: none;
+  pointer-events: none;
+  animation: fall linear infinite;
+  z-index: 4;
 }
 
-button:active {
-    background-color: #FFC300;
-    color: black;
-}
-
-label {
-    position: absolute;
-    top: -10px;
-    left: 10px;
-    align-self: flex-start;
-    margin-left: 1px;background-color: white;
-    padding: 0 10px;
-    /* border: 1px solid; */
-}
-
-#shopping-list {
-  list-style: "🎁 ";
-}
-
-#shopping-list li {
-  margin: 10px 0;
-  border-radius: 4px;
-  text-align: left;
-  font-size: 1.9em;
-  font-family: 'Caveat'
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
 }

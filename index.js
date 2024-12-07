@@ -1,81 +1,36 @@
-/*
-Grandpa has a Christmas wish list to keep track of all the gifts he wants to ask for. But there’s a problem: if he forgets he’s already added something, the list gets clogged up with duplicates. This happened last year, and he ended up with 8 talking picture frames on Christmas Day!
+const snowGlobe = document.querySelector('.snow-globe')
 
-Your task is to complete the `checkDuplicate()` function 👇 to ensure no duplicates are added to the list. But here’s the tricky part: Grandpa sometimes hits the spacebar more than once, making it harder to spot duplicates.
+function createSnowflake() {
+  const snowflake = document.createElement('p')
+  snowflake.textContent = '❄️'
+  snowflake.classList.add('snowflake')
+  const snowflakePosition = Math.random() * snowGlobe.offsetWidth
+  snowflake.style.left = `${snowflakePosition}px`
+  snowGlobe.appendChild(snowflake)
+  fall(snowflake)
+/* 
+Challenge:
+1. Write JavaScript to create a snowflake and make it fall inside the snow globe. The snowflake should have a random starting position, animation duration, and size.
+2. See index.css
+*/ 
+}
 
-For example, only one of these entries should be added to the list — the others should be flagged as duplicates:
+function fall(snowflake) {
+  const fallSpeed = Math.random() * 5 + 5
+  snowflake.style.transition = `top ${fallSpeed}s linear`
+  snowflake.style.top = `${snowGlobe.offsetHeight}px`
+  
+  setTimeout(() => {
+      snowflake.remove()
+  }, (fallSpeed) * 1000)
+}
 
-- "talking picture frames"
-- "talking  picture frames"
-- "talking picture    frames"
-- " talking picture frames "
+setInterval(createSnowflake, 100) // Let's create a snowflake every 100 milliseconds!
 
-**Your tasks:**
-1. Ensure no duplicates can be added to the list.
-2. Account for extra spaces at the beginning/end and between words.
- 
-**Stretch Goals:**
-1. Case Sensitivity: Handle cases where capitalization differs. For example:
-   - `"Cat Hammock"` should be flagged as a duplicate of `"cat hammock"`.
-   - Preserve Grandpa’s original capitalization (e.g., if `"Cat Hammock"` is added first, that should be added to the list). Do not simply convert all entries to lower case - Grandpa might well want to capitalize some words. 
-
-2. Additional Features: Add functionality to delete or edit items on the list.
+/* Stretch goals: 
+- Give some variety to your snowflakes, so they are not all the same. Perhaps every 25th one could be a snowman ☃️?
+- Remove each snowflake after a set time - this will stop the scene from being lost in a blizzard!
+- Add a button that makes the snow start falling, it could trigger a CSS-animated shake of the snow globe. Then make the snow become less frequent until it slowly stops - until the button is pressed again.  
+- Change the direction of the snowflakes so they don’t all fall vertically.
+- Make the style your own! 
 */
-
-// Get references to DOM elements
-const itemInput = document.getElementById('item-input')
-const addItemButton = document.getElementById('add-item-button')
-const shoppingList = document.getElementById('shopping-list')
-const listArr = []
-
-// Function to check item is not duplicate
-function checkDuplicate() {
-    
-    const existingList = listArr.map((item) => {
-        return simplifyListItem(item)
-    })
-    
-    const itemText = itemInput.value
-    const simplifiedItem = simplifyListItem(itemText)
-    let matches = false
-    existingList.forEach((item) => {
-        if(JSON.stringify(item)===JSON.stringify(simplifiedItem)) {
-            matches = true
-        }
-    })
-    if(!matches) {
-        listArr.push(itemText)
-    }
-    renderList()
-}
-
-function simplifyListItem(item) {
-    console.log(item)
-    const individualWords = item.split(' ')
-    const fixedWords = individualWords.filter((word) => word != "")
-    return fixedWords.map((word) => {
-      return word.toLowerCase()
-    })
-}
-
-
-// Function to add an item to the shopping list
-function renderList() {
-    shoppingList.innerHTML = ''
-    listArr.forEach((gift) => {
-        const listItem = document.createElement('li')
-        listItem.textContent = gift
-        shoppingList.appendChild(listItem)
-    })
-    itemInput.value = ''; // Clear the input field
-}
-
-// Add event listener to button
-addItemButton.addEventListener('click', checkDuplicate)
-
-// Allow adding items by pressing Enter key
-itemInput.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-        checkDuplicate()
-    }
-})
