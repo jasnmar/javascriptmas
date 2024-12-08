@@ -1,93 +1,94 @@
-body {
-  font-family: Arial, sans-serif;
+/*
+Link to Figma: https://scrimba.com/links/santa-saas-figma
+*/
+* {
+  --red: rgb(164, 48, 50);
+  --light-red: #FFF2F2;
+  --dark-red: #470000;
+  --color-light: #fff;
   margin: 0;
+  box-sizing: border-box;
+  font-family: "Be Vietnam Pro", Arial, Helvetica, sans-serif;
+  color: var(--color-light);
+}
+
+body {
+  background-color: var(--red);
+}
+
+nav {
+  background-color: var(--red);
+  margin: 40px 100px;
+  display: flex;
+}
+
+ul, li {
   padding: 0;
+  list-style-type: none;
   display: flex;
-  justify-content: center;
-  align-items: stretch;
-  min-height: 100vh;
-  background-color: #f9f9f9;
-  background-image: url('snowybg.png');
-  background-size: cover;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
-.container {
-  text-align: center;
-  background: #fff;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin: 1em 0;
-  border-radius: 15px; 
-  font-family: 'Poppins';
-  color: #054787;
+a {
+  text-decoration: none;
 }
 
-h1 {
-  font-size: 3em;
-  margin: .25em 0 .75em 0;
-  font-family: 'Caveat';
-}
-
-label, button, input::placeholder {
-    font-family: 'Poppins'
-}
-
-input::placeholder {
-    font-size: .8em;
-}
-
-.input-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  margin-bottom: 20px;
-    position: relative;
-}
-
-#item-input {
-  width: 200px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+img {
+  max-width: 100%;
 }
 
 button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #054787;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 4px;
+  padding: 10px 30px;
+  border-radius: 10px;
 }
 
-button:hover, button:focus {
-  background-color: #218838;
+.btn-dark{
+  color: var(--color-light);
+  background: var(--red);
+  border: 1px solid var(--color-light)
 }
 
-button:active {
-    background-color: #FFC300;
-    color: black;
+.btn-light {
+  color: var(--red);
+  background: var(--color-light);
+  border: 1px solid var(--red)
 }
 
-label {
-    position: absolute;
-    top: -10px;
-    left: 10px;
-    align-self: flex-start;
-    margin-left: 1px;background-color: white;
-    padding: 0 10px;
-    /* border: 1px solid; */
+h1 {
+  font-size: 81px;
 }
 
-#shopping-list {
-  list-style: "🎁 ";
+p {
+  font-size: 17px;
+  margin-bottom: 20px;
 }
 
-#shopping-list li {
-  margin: 10px 0;
-  border-radius: 4px;
-  text-align: left;
-  font-size: 1.9em;
-  font-family: 'Caveat'
+.intro-text {
+  margin: 50px auto;
+  text-align: center;
+}
+
+#customer img {
+  width: 100px;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+  margin-left: 100px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 100px;
+}
+
+.logo-text {
+  color: var(--color-light);
+}
+
+.gc-logo {
+  padding: 10px;
 }
