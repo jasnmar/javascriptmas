@@ -2,7 +2,7 @@
 Link to Figma: https://scrimba.com/links/santa-saas-figma
 */
 * {
-  --red: rgb(164, 48, 50);
+  --red: rgba(143, 0, 2, 0.83);
   --light-red: #FFF2F2;
   --dark-red: #470000;
   --color-light: #fff;
@@ -17,11 +17,14 @@ body {
 }
 
 nav {
-  background-color: var(--red);
   margin: 40px 100px;
   display: flex;
 }
 
+main {
+  margin: 0 auto;
+  text-align: center;
+}
 ul, li {
   padding: 0;
   list-style-type: none;
@@ -44,9 +47,43 @@ button {
   border-radius: 10px;
 }
 
+
+
+
+h1 {
+  font-size: 81px;
+}
+h2 {
+  color: var(--dark-red);
+  font-size: 36px
+}
+
+h3 {
+  color: #343434;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+.dashboard {
+  border-radius: 20px;
+  width: 80vw;
+}
+
+.dashboard-container {
+  margin: 0 auto 50px;;
+  text-align: center;
+
+}
+
 .btn-dark{
   color: var(--color-light);
-  background: var(--red);
+  background: transparent;
   border: 1px solid var(--color-light)
 }
 
@@ -56,18 +93,15 @@ button {
   border: 1px solid var(--red)
 }
 
-h1 {
-  font-size: 81px;
-}
-
-p {
-  font-size: 17px;
-  margin-bottom: 20px;
-}
-
 .intro-text {
   margin: 50px auto;
   text-align: center;
+  padding-bottom: 50px;
+}
+
+.sub-head {
+  font-size: 14px;
+  color: #969696;
 }
 
 #customer img {
@@ -79,6 +113,7 @@ p {
   gap: 10px;
   margin-left: 100px;
 }
+
 .logo {
   display: flex;
   align-items: center;
@@ -91,4 +126,59 @@ p {
 
 .gc-logo {
   padding: 10px;
+}
+
+.features {
+  display: flex;
+  gap: 20px;
+  padding: 50px 150px;
+}
+
+.feature-card {
+  border: 1px solid #EAEAEA;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: left;
+}
+
+.feature-card > p {
+  font-size: 14px;
+  color: #969696;
+}
+
+.feature-card > a {
+  font-size: 16px;
+  text-decoration: underline;
+  color: var(--dark-red)
+}
+
+#solution1 > .more {
+  color: #343434;
+  font-weight: 700;
+}
+
+#solution {
+  display: flex;
+  background: #FFF2F2
+}
+
+#solution1 > h2 {
+  font-size: 52px;
+}
+
+#solution1, #solution2 {
+  flex: 1;
+}
+
+#solution1 {
+  text-align: left;
+  padding: 80px;
+}
+
+#solution1 > p {
+  color: #969696;
+}
+
+#solution2 {
+  width: 630px;
 }
