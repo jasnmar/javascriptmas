@@ -1,184 +1,89 @@
-/*
-Link to Figma: https://scrimba.com/links/santa-saas-figma
-*/
-* {
-  --red: rgba(143, 0, 2, 0.83);
-  --light-red: #FFF2F2;
-  --dark-red: #470000;
-  --color-light: #fff;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Be Vietnam Pro", Arial, Helvetica, sans-serif;
-  color: var(--color-light);
-}
-
-body {
-  background-color: var(--red);
-}
-
-nav {
-  margin: 40px 100px;
-  display: flex;
-}
-
-main {
+html, body {
   margin: 0 auto;
-  text-align: center;
 }
-ul, li {
-  padding: 0;
-  list-style-type: none;
+
+main{
+  height: 225px;
+  width: 360px;
+  background: linear-gradient(45deg, 
+    #1F4C27 0% 10%, 
+    #4C4D51 10% 20%,
+    #1F4C27 20% 30%, 
+    #4C4D51 30% 40%,
+    #1F4C27 40% 50%, 
+    #4C4D51 50% 60%,
+    #1F4C27 60% 70%, 
+    #4C4D51 70% 80%,
+    #1F4C27 80% 90%, 
+    #4C4D51 90% 100%);
+    margin: 0;
+}
+
+#santa-head{
+  width: 88px;
+  height: 100px;
+  background: #FED8B2;
+  position: fixed;
+  left: 150px;
+  top: 66px;
+  border-radius: 20px;;
+}
+
+#eyes-container {
   display: flex;
-  justify-content: space-between;
+  background: blue;
+  width: 100%;
+  height: 40px;
   align-items: center;
-  gap: 20px;
-}
-
-a {
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-}
-
-button {
-  padding: 10px 30px;
-  border-radius: 10px;
-}
-
-
-
-
-h1 {
-  font-size: 81px;
-}
-h2 {
-  color: var(--dark-red);
-  font-size: 36px
-}
-
-h3 {
-  color: #343434;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 17px;
-  margin-bottom: 20px;
-}
-
-.dashboard {
-  border-radius: 20px;
-  width: 80vw;
-}
-
-.dashboard-container {
-  margin: 0 auto 50px;;
-  text-align: center;
-
-}
-
-.btn-dark{
-  color: var(--color-light);
-  background: transparent;
-  border: 1px solid var(--color-light)
-}
-
-.btn-light {
-  color: var(--red);
-  background: var(--color-light);
-  border: 1px solid var(--red)
-}
-
-.intro-text {
-  margin: 50px auto;
-  text-align: center;
-  padding-bottom: 50px;
-}
-
-.sub-head {
-  font-size: 14px;
-  color: #969696;
-}
-
-#customer img {
-  width: 100px;
-}
-
-.nav-buttons {
-  display: flex;
+  justify-content: center;
   gap: 10px;
-  margin-left: 100px;
 }
 
-.logo {
+.eye {
+  background: #294444;
+  width: 14px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+#mustache {
   display: flex;
-  align-items: center;
-  margin-right: 100px;
+  background: orange;
+  width: 130px;
+  height: 20px;
+  left: -30px;
+  position: relative;
 }
 
-.logo-text {
-  color: var(--color-light);
+
+#main-hat {
+  height: 34px;
+  width: 108px;
+  background: #FF2500;
+  border-top-left-radius: 54px;
+  z-index: 2;
+  position: fixed;
+  top: 32px;
+  left: 140px;
 }
 
-.gc-logo {
-  padding: 10px;
+#back-hat {
+  background: #8A0F00;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  position: fixed;
+  top: 32px;
+  left: 232px;
 }
 
-.features {
-  display: flex;
-  gap: 20px;
-  padding: 50px 150px;
-}
-
-.feature-card {
-  border: 1px solid #EAEAEA;
-  border-radius: 20px;
-  padding: 40px;
-  text-align: left;
-}
-
-.feature-card > p {
-  font-size: 14px;
-  color: #969696;
-}
-
-.feature-card > a {
-  font-size: 16px;
-  text-decoration: underline;
-  color: var(--dark-red)
-}
-
-#solution1 > .more {
-  color: #343434;
-  font-weight: 700;
-}
-
-#solution {
-  display: flex;
-  background: #FFF2F2
-}
-
-#solution1 > h2 {
-  font-size: 52px;
-}
-
-#solution1, #solution2 {
-  flex: 1;
-}
-
-#solution1 {
-  text-align: left;
-  padding: 80px;
-}
-
-#solution1 > p {
-  color: #969696;
-}
-
-#solution2 {
-  width: 630px;
+#hat-ball {
+  background: #fff;
+  border-radius: 50%;
+  position: fixed;
+  height: 40px;
+  width: 40px;
+  z-index: 1;
+  top: 48px;
+  left: 240px;
 }
