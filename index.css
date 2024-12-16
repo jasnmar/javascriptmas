@@ -1,184 +1,124 @@
-/*
-Link to Figma: https://scrimba.com/links/santa-saas-figma
-*/
-* {
-  --red: rgba(143, 0, 2, 0.83);
-  --light-red: #FFF2F2;
-  --dark-red: #470000;
-  --color-light: #fff;
+html, body {
   margin: 0;
-  box-sizing: border-box;
-  font-family: "Be Vietnam Pro", Arial, Helvetica, sans-serif;
-  color: var(--color-light);
+  padding: 0;
 }
 
 body {
-  background-color: var(--red);
+  background-color: black;
+  color: white;
+  font-family: 'Poppins', 'Gill Sans', sans-serif;
 }
 
-nav {
-  margin: 40px 100px;
-  display: flex;
+/* fonts */
+
+h1 {
+  font-family: 'Birthstone', cursive;
+  font-size: 2.8em;
+  padding: 0;
+  margin: 0;
+  letter-spacing: .09em
 }
 
-main {
+p.ux-message {
   margin: 0 auto;
   text-align: center;
 }
-ul, li {
-  padding: 0;
-  list-style-type: none;
+
+/* elements */
+
+header, main {
+  width: 300px;
+  border: 2px solid #666;
+}
+
+header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+  gap: .8em;
+  margin: 1em auto 0 auto;
+  border-bottom: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 1em 1em 0.5em 1em;
 }
 
-a {
-  text-decoration: none;
+main {
+  margin: 0 auto .5em auto;
+  border-top: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 0 1em 1em 1em;
 }
 
-img {
-  max-width: 100%;
+.heart {
+  margin-left: auto;
+  font-size: 1.5em;
 }
 
-button {
-  padding: 10px 30px;
-  border-radius: 10px;
+.menu {
+  transform: rotate(90deg);
+  font-size: 2em;
 }
 
-
-
-
-h1 {
-  font-size: 81px;
-}
-h2 {
-  color: var(--dark-red);
-  font-size: 36px
-}
-
-h3 {
-  color: #343434;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 17px;
-  margin-bottom: 20px;
-}
-
-.dashboard {
-  border-radius: 20px;
-  width: 80vw;
-}
-
-.dashboard-container {
-  margin: 0 auto 50px;;
-  text-align: center;
-
-}
-
-.btn-dark{
-  color: var(--color-light);
-  background: transparent;
-  border: 1px solid var(--color-light)
-}
-
-.btn-light {
-  color: var(--red);
-  background: var(--color-light);
-  border: 1px solid var(--red)
-}
-
-.intro-text {
-  margin: 50px auto;
-  text-align: center;
-  padding-bottom: 50px;
-}
-
-.sub-head {
-  font-size: 14px;
-  color: #969696;
-}
-
-#customer img {
-  width: 100px;
-}
-
-.nav-buttons {
+.feed-avatars {
+  padding: .5em 0;
   display: flex;
-  gap: 10px;
-  margin-left: 100px;
+  gap: .5em;
+  min-height: 66px;
 }
 
-.logo {
+.feed-images {
+  margin-top: .5em;   
   display: flex;
   align-items: center;
-  margin-right: 100px;
+  justify-content: center;
+  min-height: 400px;
 }
 
-.logo-text {
-  color: var(--color-light);
+/* images */
+
+.avatar {
+  width: 60px;
+  border-radius: 50%;
+  border: 3px solid #fff;
 }
 
-.gc-logo {
-  padding: 10px;
+.highlight {
+  border: 3px solid red;
 }
 
-.features {
-  display: flex;
-  gap: 20px;
-  padding: 50px 150px;
+.feature-image {
+  min-width: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 3px;
+  height: 400px;
+  object-fit: cover; 
+  border: 3px solid white;
 }
 
-.feature-card {
-  border: 1px solid #EAEAEA;
-  border-radius: 20px;
-  padding: 40px;
-  text-align: left;
+/* loading animation */
+
+.ux-loading {
+  animation: myAnim 1s linear 0s infinite normal forwards;
+  font-size: 3em;
 }
 
-.feature-card > p {
-  font-size: 14px;
-  color: #969696;
+@keyframes myAnim {
+0% {
+  opacity: 0.8;
+  transform: scale(0.2);
 }
 
-.feature-card > a {
-  font-size: 16px;
-  text-decoration: underline;
-  color: var(--dark-red)
+80% {
+  opacity: 0;
+  transform: scale(1.2);
 }
 
-#solution1 > .more {
-  color: #343434;
-  font-weight: 700;
+100% {
+  opacity: 0;
+  transform: scale(2.2);
+}
 }
 
-#solution {
-  display: flex;
-  background: #FFF2F2
-}
-
-#solution1 > h2 {
-  font-size: 52px;
-}
-
-#solution1, #solution2 {
-  flex: 1;
-}
-
-#solution1 {
-  text-align: left;
-  padding: 80px;
-}
-
-#solution1 > p {
-  color: #969696;
-}
-
-#solution2 {
-  width: 630px;
-}
